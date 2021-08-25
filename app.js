@@ -3,19 +3,16 @@ const bodyParser = require("body-parser");
 require('dotenv').config()
 
 const PORT = process.env.PORT;
-const app = express(bodyParser.json());
+const app = express();
 
-app.use((req,res,next)=> {
-    console.log(req.url);
-    console.log("hi from first middleware");
-    next();
-})
+const userRotues = require('./routes/user');
 
-app.use((req,res) => {
-    console.log('hi from second middleware');
-    res.send('Hi From Express server');
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}))
+
+app.use(userRotues)
+
 
 app.listen(PORT,()=>{
-    console.log(`App running at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
 })
