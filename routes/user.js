@@ -1,22 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// file system module to process json file I/O operations..
-const fs = require('fs'); 
+
 
 
 const {saveUser,getAllUser,generateId} = require('../utils/uitl')
-// // Utility Methods...
 
-// function saveUser(data){
-//     const stringfiedData = JSON.stringify(data);
-//     fs.writeFileSync('./mockDb.json',stringfiedData);
-// }
-// function getAllUser(){
-//     const userData = fs.readFileSync('./mockDb.json');
-//     return JSON.parse(userData,null,2);
-    
-// }
 
 
 router.post('/add-user',(req,res,next)=>{
