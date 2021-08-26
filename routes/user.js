@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
+const fs = require('fs')
 
 // Util functions ..
 const {saveUser,getAllUser,generateId} = require('../utils/uitl')
